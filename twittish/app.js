@@ -45,8 +45,17 @@ function getQuoteJSON(event){
   var url = "https://crossorigin.me/http://quotes.stormconsultancy.co.uk/random.json";
   $.getJSON(url, function(result){
     $(".messageJSON").html(result.quote);
+    var result = result;
+    var func = openTweetWindow.bind(result);
+    func();
   })
 }
 
-
-
+// Note: add a tweet button that tweets the message contained
+// Note: read twitter's api doc https://dev.twitter.com/web/tweet-button/web-intent
+function openTweetWindow(){
+  var url = "https://twitter.com/intent/tweet?"
+  var text = "text="+ encodeURIComponent('"' + this.quote + '" ' + this.author);
+  var hashtag = "hashtag="+encodeURIComponent("#RandQuote");
+  window.open(url+text+"&"+hashtag);
+}
