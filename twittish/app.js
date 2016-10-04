@@ -22,3 +22,22 @@ function getQuote() {
  });
 }
 
+// Note: add an non-https based random quote generator
+function getQuoteHttp(){
+ var output = $.ajax({
+      url: "https://crossorigin.me/http://api.icndb.com/jokes/random",
+      jsonp: "callback",
+      type: "GET",
+      dataType: "jsonp",
+      success: function (data) {
+        $("#author").remove();
+        $(".messageHttp").append(data["value"]["joke"]);
+      },
+      xhrFields: {
+        withCredentials: false
+      }
+    });
+
+}
+
+
