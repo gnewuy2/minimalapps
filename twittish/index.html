@@ -6,6 +6,7 @@ $(document).ready(function() {
   getQuote();
   $("#getMessage").on('click', function(){getQuote();});
   $("#getMessageHttp").on('click', function(){getQuoteHttp();});
+  $("#getMessageJSON").on('click', function(e){getQuoteJSON(e);});
 })
 </script>
 <div class="container-fluid">
@@ -21,11 +22,18 @@ $(document).ready(function() {
     </div>
   </div>
   <div class = "row text-center">
+    <div class = "col-xs-12 well messageJSON">
+    </div>
+  </div>
+  <div class = "row text-center">
     <div class = "col-xs-12">
       <button id = "getMessage" class = "btn btn-primary">
         Get Message
       </button>
       <button id = "getMessageHttp" class = "btn btn-primary">
+        Get Message
+      </button>
+      <button id = "getMessageJSON" class = "btn btn-primary">
         Get Message
       </button>
     </div>

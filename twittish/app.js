@@ -40,4 +40,13 @@ function getQuoteHttp(){
 
 }
 
+// Note: add a random quote based on .getJSON method
+function getQuoteJSON(event){
+  var url = "https://crossorigin.me/http://quotes.stormconsultancy.co.uk/random.json";
+  $.getJSON(url, function(result){
+    $(".messageJSON").html(result.quote);
+  })
+}
+
+
 
